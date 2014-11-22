@@ -3,7 +3,7 @@
 
 ## Write a short comment describing this function
 
-# Function to create a Cached matrix object and
+# Function to create a Cached matrix object and methods
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -14,7 +14,7 @@ makeCacheMatrix <- function(x = matrix()) {
     i <<- NULL
   }
   get <- function() x
-  setinverse <- function(invert) i <<- invert
+  setinverse <- function(solve) i <<- solve
   getinverse <- function() i
   list(set = set, get = get,
        setinverse = setinverse,
@@ -22,10 +22,10 @@ makeCacheMatrix <- function(x = matrix()) {
   
   
 }
-## invert function
-invert <- function (I) solve(I) %*% I
 
-## function to find the inverse of the Matrix x and Cache it's value 
+
+
+## function to find the inverse of the Matrix x and Cache it's value for next time
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -35,7 +35,7 @@ cacheSolve <- function(x, ...) {
     return(i)
   }
   data <- x$get()
-  i <- invert(data, ...)
+  i <- solve(data, ...)
   x$setinverse(i)
   i
 }
