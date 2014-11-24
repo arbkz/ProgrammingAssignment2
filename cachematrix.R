@@ -1,6 +1,5 @@
 
-# Function to find and cache the inverse of a matrix 
-#  x is used to store the matrix, i is used to store it's inverse
+# Function to create an object to store a matrix and it's inverse 
 
 makeCacheMatrix <- function(x = matrix()) {
 
