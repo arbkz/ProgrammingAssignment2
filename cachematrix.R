@@ -1,19 +1,25 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-## Write a short comment describing this function
-
-# Function to create a Cached matrix object and methods
+# Function to find and cache the inverse of a matrix 
+#  x is used to store the matrix, i is used to store it's inverse
 
 makeCacheMatrix <- function(x = matrix()) {
 
   
+  #  for each new matrix object, init the inverse to NULL
   i <- NULL
+
+  # setter function
+  # after you create a new CacheMatrix object, this function set it's value.
+  
   set <- function(y) {
     x <<- y
     i <<- NULL
   }
+  # getter function
   get <- function() x
+  
+  #inverse setter and getter
+  
   setinverse <- function(solve) i <<- solve
   getinverse <- function() i
   list(set = set, get = get,
